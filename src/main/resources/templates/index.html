@@ -1,0 +1,45 @@
+<html ng-app="taskManagerApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>AngularJS Leave Manager</title>
+<link href='./css/style.css' rel="stylesheet" type="text/css" />
+<link href='./css/css/font-awesome.css' rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<script data-require="angular.js@*" data-semver="1.3.0-beta.14" src="http://code.angularjs.org/1.3.0-beta.14/angular.js"></script>
+  <script data-require="angular-animate@*" data-semver="1.3.0-beta.14" src="http://code.angularjs.org/1.3.0-beta.14/angular-animate.js"></script>
+<script type="text/javascript" src="./js/app.js"></script>
+</head>
+<body>
+
+<div ng-controller="taskManagerController">
+<h2 class="page-title">Leave Manager using Spring Boot, Spring Data REST &amp; AngularJS</h2>
+	<div id="add-task-panel" class="fadein fadeout addpanel panel" ng-hide="toggle">
+		<div class="panel-body">
+			<div class="leave" >
+				<table class="add-leave">
+					<tr>
+						<td>Leave Name:</td>
+						<td><input type="text" ng-model="leaveName"/></td>
+					</tr>
+					<tr>
+						<td>Leave Description:</td>
+						<td><input type="text" ng-model="leaveDescription"/></td>
+					</tr>
+					<tr>
+						<td>Leave Status:</td>
+						<td>
+							<select ng-model="leaveStatus" ng-options="status as status for status in statuses">
+								<option value="">-- Select --</option>						
+						     	</select>
+						</td>
+					</tr>
+					<tr>
+						<td><br/><button ng-click="addTask()" class="btn-panel-big">Add New Task</button></td>
+					</tr>
+				</table>								
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
