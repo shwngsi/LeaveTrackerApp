@@ -10,7 +10,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 
     function findAllTasks() {
         //get all tasks and display initially
-        $http.get(urlBase + '/tasks/search/findByTaskArchived?archivedfalse=0').
+        $http.get(urlBase + '/tasks/search/findAllLeaves').
             success(function (data) {
                 if (data._embedded != undefined) {
                     $scope.tasks = data._embedded.tasks;
@@ -19,7 +19,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
                 }
                 for (var i = 0; i < $scope.tasks.length; i++) {
                     if ($scope.tasks[i].leaveStatus == 'Approved') {
-                        $scope.selection.push($scope.tasks[i].taskId);
+                        $scope.selection.push($scope.tasks[i].id);
                     }
                 }
                 $scope.leaveName="";
